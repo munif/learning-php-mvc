@@ -2,6 +2,8 @@
 
 namespace App\Core;
 
+use App\Core\FlashMessage;
+
 class View {
 
 
@@ -14,6 +16,8 @@ class View {
             $twig = new \Twig\Environment($loader);
 
             $twig->addGlobal('BASE_URL', BASE_URL);
+            $twig->addGlobal('flash', new FlashMessage());
+
         }
 
         echo $twig->render($template, $args);
